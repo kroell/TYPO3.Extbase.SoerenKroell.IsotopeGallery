@@ -1,0 +1,14 @@
+plugin.tx_skisotopegallery {
+	view {
+		# cat=plugin.tx_skisotopegallery/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:sk_isotope_gallery/Resources/Private/Templates/
+		# cat=plugin.tx_skisotopegallery/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:sk_isotope_gallery/Resources/Private/Partials/
+		# cat=plugin.tx_skisotopegallery/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:sk_isotope_gallery/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_skisotopegallery//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

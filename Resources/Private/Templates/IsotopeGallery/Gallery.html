@@ -1,0 +1,61 @@
+{namespace sk=TYPO3\SkIsotopeGallery\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+	<div class="row">
+	
+		<f:for each="{allGalleries}" as="gallery">    	
+		
+			<div class="span3">
+				<nav id="options" class="work-nav">
+					<ul id="filters" class="option-set" data-option-key="filter">
+						<li class="type-work">{gallery.title}</li>
+						<li><a href="#filter" data-option-value="*" class="selected">Gesamte &Uuml;bersicht</a></li>
+						
+						<f:for each="{gallery.groups}" as="group">
+							<li><a href="#filter" data-option-value=".{group.title}">{group.title}</a></li>
+						</f:for>
+					</ul>
+				</nav>  
+			</div>
+			
+			<div class="span9">
+				<div class="row">
+					<section id="projects">
+						<ul id="thumbs">
+							<f:for each="{gallery.groups}" as="group">
+								<f:for each="{group.items}" as="item">
+									<li class="item-thumbs span3 {group.title}">
+										<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="{item.title}" href="uploads/tx_skisotopegallery/{item.image}">
+											<span class="overlay-img"></span>
+											<span class="overlay-img-thumb font-icon-plus"></span>
+										</a>
+										<img src="{sk:cropImage(imagepath:'uploads/tx_skisotopegallery/{item.image}')}" alt="{item.description}"></img>
+									</li>
+								</f:for>
+							</f:for>
+						</ul>
+					</section>
+				</div>
+			</div>
+		
+		</f:for> 
+	
+	</div>
+	
+	<f:if condition="{item.title}">
+	
+		<f:then>
+			<style type="text/css">	.fancybox-title-inside-wrap{padding: 25px 30px 30px;} </style>
+		</f:then>
+		<f:else>
+			<style type="text/css">	.fancybox-title-inside-wrap{padding: 0px;} </style>
+		</f:else>
+	
+	</f:if>
+	
+	
+
+</f:section>

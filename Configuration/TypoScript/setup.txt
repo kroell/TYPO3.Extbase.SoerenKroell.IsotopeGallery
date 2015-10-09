@@ -1,0 +1,61 @@
+plugin.tx_skisotopegallery {
+	view {
+		templateRootPath = {$plugin.tx_skisotopegallery.view.templateRootPath}
+		partialRootPath = {$plugin.tx_skisotopegallery.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_skisotopegallery.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_skisotopegallery.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+
+}
+
+plugin.tx_skisotopegallery._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-sk-isotope-gallery table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+	.tx-sk-isotope-gallery{
+		
+	}
+
+	.tx-sk-isotope-gallery table th {
+		font-weight:bold;
+	}
+
+	.tx-sk-isotope-gallery table td {
+		vertical-align:top;
+	}
+)
+
+
+
+page {
+		
+	includeJSFooter {
+		
+		isotope = EXT:sk_isotope_gallery/Resources/Public/Javascript/jquery.isotope.js
+		isotope.excludeFromConcatenation = 1
+		isotope.disableCompression = 1
+		
+		init = EXT:sk_isotope_gallery/Resources/Public/Javascript/init.js
+		init.excludeFromConcatenation = 1
+		init.disableCompression = 1
+
+	}
+	
+}
